@@ -1,0 +1,10 @@
+# Python
+__pycache__
+
+# VS Code
+.vscode
+
+# Keeping data folder but not content
+/data/**
+!/data/**/
+!/data/**/.gitkeep
