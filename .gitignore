@@ -2,10 +2,11 @@
 __pycache__
 .python-version
 
-# VS Code
-.vscode
-
 # Keeping data folder but not content
 /data/**
 !/data/**/
 !/data/**/.gitkeep
+
+# Configurations
+.env
+.vscode
