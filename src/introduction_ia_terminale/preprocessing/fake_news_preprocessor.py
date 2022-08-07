@@ -1,11 +1,11 @@
-import os.path as osp
+import pathlib
 from typing import Tuple
 
 import pandas as pd
 
 
 class FakeNewsPreprocessor:
-    def __init__(self, root_path: str) -> None:
+    def __init__(self, root_path: pathlib.PurePath) -> None:
         self._true_mapping = {
             'politicsNews': 'politics',
             'worldnews': 'news'
@@ -35,8 +35,8 @@ class FakeNewsPreprocessor:
         return self._dataframe
 
     def _load_dataframes(self) -> Tuple[pd.DataFrame, pd.DataFrame]:
-        df_fake = pd.read_csv(osp.join(self._root_path, 'Fake.csv'))
-        df_true = pd.read_csv(osp.join(self._root_path, 'True.csv'))
+        df_fake = pd.read_csv(self._root_path.joinpath('Fake.csv'))
+        df_true = pd.read_csv(self._root_path.joinpath('True.csv'))
         return df_fake, df_true
     
     def _run_preprocessing(self) -> pd.DataFrame:
